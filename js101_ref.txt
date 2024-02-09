@@ -1,0 +1,738 @@
+console.log("its really good to see you studing ",firstName," you are 20 years old");
+window.alert("it' a alert popup on your window");
+document.getElementById("p1").innerHTML = "HEllo " + firstName;
+
+let userName = window.prompt("what's your name ");    //taking input through window prompt 
+console.log(userName);
+
+when we take usrr inputthrough promt its a string type data 
+Number(),String(),Boolean()    // these are constructors to change data type from any to particular type 
+x =  Number("3.14")
+y = String(3.14)
+z = Boolean("") //empty string will be false and otherwise true
+ //## typeof## keyword to check data type of variable
+ console.log(x,typeof x);// 3.14 'string' #OUTPUT
+
+const // a variable whose value can't be changed 
+  ## const PI = 3.14159;
+  // writing in capital is a good practice 
+
+
+math object and various methods of it 
+  math.pow()
+  math.floor()
+  math.ceil()
+  math.round()
+  math.sqrt()
+  math.abs()
+  math.max()
+  math.min()
+  math.random() 
+  ex math.floor(math.random()*6 +1) // gives a num bw 1 and 6
+
+string methods and prorp 
+   let name = "  Divyansh Verma  ";
+   let num = "812-037-9678";
+
+   console.log(name.length);
+   console.log(name.charAt(5));
+   console.log(name.toUpperCase);
+   console.log(name.toLowerCase);
+   console.log(name.indexOf("a"));
+   console.log(name.lastIndexOf("a"));
+   name = name.trim();
+   num = num.replaceAll("-","/");
+   console.log(num);
+
+
+
+slice() extracts a section of string and returns it as a new string without modifying the original string 
+    let fullName = "Hrithik Roshan";
+    let firstName;
+    let lastName;
+    //firstName = fullName.slice(0,7); # it doesn't includes last char 
+    //lastName = fullName.slice(8);
+    firstName = fullName.slice(0,fullName.indexOf(" "));
+    lastName = fullName.slice(fullName.indexOf(" ")+1);
+
+
+method chaining = it allows you to call one method after another and makes code much simplier to read
+ 
+checked property of radio btn gives a Boolean value and useful to ensure that a particular box is checked  
+
+## FUNCTION ##
+  // program to generate fibonacci series up to n terms
+  // take input from the user
+  
+  
+   const number = parseInt(prompt('Enter the number of terms: '));
+    function Fibonacci(n){
+         if(n==1){
+      return 1;
+         }
+         if(n==2){
+      return 1;
+         }
+         else{
+      return Fibonacci(n-1)+Fibonacci(n-2);
+        }
+
+    }
+    function printFib(num_terms){
+       for(let i=1;i<=num_terms;i++){
+        console.log(Fibonacci(i));
+       }
+    }
+    printFib(number);
+
+## ternary operator 
+     condition ? expressionIfTrue:expressionIfFalse;
+
+
+variable scope = where a variable is accessible 
+let = variables are limited to block scope{}
+var = variables are limited to a function (){}
+
+global variables = is declARED OUTSIDE any function 
+(if global , var will change browser'd window properties      )
+
+
+templet literals delimited between `` using these u can write variable along with text data like `hello divyansh ${variable} `
+
+number.toLocaleString(locale,{options}) //returns a language sensitive representation of this number 
+
+function
+
+
+array 
+ let arr = ["adrak","pyaz","gajar","dhaniya",1,"london"]; 
+ arr.push("aloo");//add an element at last
+ arr.pop();//removes an element from last
+ arr.unshift("tamatar")//adds an element at begining of arr
+ arr.shift();//removes from front or begining
+ let len = arr.length;
+ let idx = arr.indexOf("gajar");
+ console.log("length of arr is ",len);
+ console.log(`index of gajar is ${idx}`);
+
+for(let element of arr){
+  console.log(element);
+}
+  let fruits = [apple,mango,tomato,banana];
+  fruits = fruits.sort().reverse();
+
+## spread operator... = allows an iterable such as an array or string to be expanded in places where zero 
+     or more arguments are expected (unpacks the elements)
+    let numbers = [1,2,3,4,5,6,7,8,9]   ;
+    let maximum= math.max(...numbers);
+    let class1 = ["dev","aryan","rohit"];
+    let class2 = ["sakshi","rashmi","muskan"] ;
+
+    class1.push(...class2);
+    console.log(...class1);    
+
+## REST PARAMETERS = represents an indefinite number of parameters (packs arguments into an array)
+   let a,b,c,d,e;
+   console.log(sum(a,b));
+   console.log(sum(a,b,c));
+   console.log(sum(a,b,c,d));
+   console.log(sum(a,b,c,d,e));
+
+   function sum(...numbers){
+    let total = 0;
+    for(let num of numbers){
+        total += num ;
+    }
+    return total;
+   }
+  
+  ##CALLBACK = A function passed as an argument to another function.
+    $$ it ensures that a function is not going to run before a task is completed.
+    $$ helps us develop asynchronous code.
+    (when one function has to wait for another function that helps us avoid errors 
+    and potential problems Ex. wait for a file to load )
+
+sum(2,3,dispDom);
+
+function sum(x,y,callback){
+    let result = x+y;
+    callback(result);
+}
+
+function dispDom(output){
+    document.getElementById("label1").innerHTML = output;
+}
+
+ ## array.forEach()= executes a provided callback function once for every array element 
+  
+  @ array.forEach(function(currentValue, index, arr), thisValue)  ## SYNTAX OF forEach()
+    the forEach() method calls a function for each element in an array.
+
+       let students = ['sonam','rashmi','jaya'];
+       students.forEach(capitalize);
+       students.forEach(print);
+
+       function capitalize(element,index,array){
+        array[index]= element[0].toUpperCase() + element.substring(1);
+       }
+
+       function print(element){
+         console.log(element);
+       }
+ ##array.map() = executes a provided callback function once for each array element 
+                 and creates a new array      
+  @ array.map(function(currentValue, index, arr), thisValue)      ## SYNTAX OF map()
+     map() creates a new array from calling a function for every array element.
+     map() does not execute the function for empty elements.
+     map() does not change the original array.
+
+     let numbers = [1,2,3,4,5];
+     let sqrts = numbers.map(sqroot);
+     let squares = numbers.map(square);
+     let cubes = numbers.map(cube);
+
+     sqrts.forEach(print);
+     squares.forEach(print);
+     cubes.forEach(print);
+
+     function sqroot(element){
+        return math.sqrt(element);
+     }
+
+     function square(element){
+        return math.pow(element,2);
+     }
+     
+     function cube(element){
+        return math.pow(element,3);
+     }
+
+     function print(element){
+        console.log(element);
+     }
+## array.filter() = creates a new array with all elements that pass the test provided by a function
+    let grades = [75,80,85,90,95,96,99,100];
+    let topGraderScore = grades.filter(checkGrade);
+
+    topGraderScore.forEach(print);
+
+    function checkGrade(grade){
+        return grade >= 90
+    }
+    function print(element){
+        console.log(element);
+    }
+
+## array.reduce() = reduces an array to a single value
+  let prices = [10,20,30,40,50];
+  let total = prices.reduce(checkOut);
+  console.log(`the total is : $${total}`);
+
+  function checkOut(total,element){
+    return total+element;
+  }
+
+ ## Numeric Sort 
+   By default, the sort() function sorts values as strings.
+   This works well for strings ("Apple" comes before "Banana").
+   However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+   Because of this, the sort() method will produce incorrect result when sorting numbers.
+   You can fix this by providing a compare function: 
+
+   @ const points = [40, 100, 1, 5, 25, 10];
+     points.sort(function(a, b){return a - b});
+
+   @using the same trick u can have descending order too
+     const points = [40, 100, 1, 5, 25, 10];
+     points.sort(function(a, b){return b - a});
+
+The purpose of the compare function is to define an alternative sort order.
+  The compare function should return a negative, zero, or positive value, depending on the arguments:
+                function(a, b){return a - b}
+  When the sort() function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
+  If the result is negative, a is sorted before b.
+  If the result is positive, b is sorted before a.
+  If the result is 0, no changes are done with the sort order of the two values
+
+
+## function expresion = function without a name (anonymous function)
+
+ const greeting = function(){
+    console.log("hello!");
+ } 
+
+ greeting();
+
+
+ another example of function expression used earlier was in counter 
+  let count =0;
+  document.getElementById("incBtn").onClick = function(){
+    count+=1;
+    document.getElementById(Label1).innerHTML = count;
+  }
+  document.getElementById("decBtn").onClick = function(){
+    count--;
+    document.getElementById("Label1").innerHTML = count ;
+  }
+
+
+## ARROW FUNCTION = its an compact alternative to tradition function expression
+   
+function greeting(){
+    console.log("hello!");
+ }
+// get rid of the the func name that we didn't even used in func exp but in this case i comapred it with functions 
+// remove curly brackets and put an arrow instead and that directs what to do next 
+ const greeting = ()=>console.log("hello!");
+
+$$ next 
+  cont percentage = function(x,y){
+    return x/y *100;
+  }
+  console.log(`${percentage(75,100)}%`);
+
+$$  now convert this to arrow func 
+
+cont percentage = (x,y)=> x/y *100;
+console.log(`${percentage(75,100)}%`);
+
+let grades = [100,50,45,58,99,89,90];
+grades.sort((x,y)=>y-x);
+grades.forEach((element)=> console.log(element));
+// allthis is same as if we defined two functions print and ascCompare 
+//then put their callbacks in sort and forEach  now all this is in 2 lines 
+ 
+ ## Map = object that holds key-value pairs of any data type
+
+ const store = new Map([
+    ["t-shirt",900],
+    ["jeans",3000],
+    ["socks",200],
+    ["jacket",4000]
+ ]);
+
+ store.get("t-shirt");//it gives the value of the corresponding key 
+ store.set("cap",300);
+ store.delete("socks");
+ console.log(store.has("socks"));
+ console.log(store.size);
+
+ store.forEach((value,key)=> console.log(`${key} Rs${value}));
+
+## OOPS ## 
+   $$ object = a group of properties and methods 
+             properties = what an object has
+             methods = what an obj can do 
+             use . to access prop/methods 
+     // this = refrence to a particular obj the obj depends on the immediate context 
+    const car1 = {
+        model:"Lexus",
+        colour:"black",
+        year : 2028, 
+         
+        drive: function(){
+            console.log(`You are driving a ${this.model}`);
+         },
+
+        brake: function(){
+            console.log("brakes are triggerd ");
+         }
+    }
+
+  $$ class = blueprint for creating  objects 
+             defines what properties and methods they have 
+             use a constructor for unique properties
+
+        class Player{
+            score = 0;
+
+            pause(){
+                console.log("you Paused the game ");
+            }
+
+            exit(){
+                console.log("you exited the game!");
+            }
+        } 
+        
+        const playr1 = new Player();
+        const pl2 = new Player();
+
+        playr1.score += 1;
+        pl2.score +=4;
+
+        console.log(pl2.score);
+        pl2.pause();
+        pl2.exit();
+
+ // constructor = a special method of a class , accepts arguments and assigns properties 
+
+     class Student{
+        constructor(name,age,cgpa,cls){
+            this.name = name;
+            this.age = age;
+            this.cls = cls;
+            this.cgpa = cgpa;
+        }
+        study(){
+            console.log(`${this.name} studies in ${this.cls} and is ${this.age}years old and has scored ${this.cgpa}in this class`);
+        }
+     }   
+
+     const student1 = new Student("Ritika",15,X'th-c,95%);
+     const student2 = new Student("Shriyansh",10,V'th-b,97%);
+     
+     console.log(student1.name);
+
+    // static keyword  = belongs to class, not objects 
+                          properties : useful for caches, fixed-configuration
+                          methods: useful for utility functions
+
+    class Student{
+    static numOfStudents = 0;
+    constructor(name,age,grade,cls_section){
+        this.name = name ;
+        this.age = age ;
+        this.grade = grade;
+        this.cls_section = cls_section;
+        Student.numOfStudents+=1;
+    }
+ }
+
+ const student1 = new Student("aryan",10,"90%","vth A");
+ const student2 = new Student("harsh",10,"90%","vth A");
+ const student3 = new Student("chetan",10,"90%","vth B");
+ const student4 = new Student("sourabh",10,"90%","vth A");
+
+ console.log(Student.numOfStudents);
+
+  // $$ INHERITENCE = a child class can inherit all the methods and properties from another class
+    class Animal{
+        alive= true;
+        eat(){
+            console.log(`this ${this.name} is eating `);
+        }
+        sleep(){
+            console.log(`this ${this.name} is sleeping `);
+        }
+    }
+
+    class Rabbit extends Animal{
+        name= "Khargosh";
+
+        run(){
+            console.log(`This ${this.name} is running `);
+        }
+    }
+    class Fish extends Animal{
+        name="Machili";
+
+        swim(){
+            console.log(`this ${this.name}  is swimming`);
+        }
+    }
+    const fish = new Fish();
+    console.log(fish.name);
+    fish.swim();
+    fish.eat()
+    fish.sleep();
+ // fish.run();
+
+ $$ super KEYWORD = refers to the parent class . commonly used to invoke constructor of a parent class
+    
+class Animal{
+    constructor(name,age){
+      this.name = name ;
+      this.age = age;
+    }
+}
+class Rabbit extends Animal{
+    constructor(name,age,runSpeed){
+       //this.name = name ;
+       //this.age = age ;
+       super(name,age);
+       this.runSpeed= runSpeed;
+    }
+}
+class Fish extends Animal{
+    constructor(name,age,swimSpeed){
+        super(name,age);
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+const fish = new Fish("memo",1,10);
+const rabit = new Rabbit("Khargosh",2,20);
+
+console.log(fish.name);
+console.log(fish.age);
+console.log('hek');
+console.log(rabit.name);
+console.log(rabit.age);
+
+## getter and setters 
+ get = binds an obj prop to a function when that property is accessed
+
+ set = binds an obj property to a function when that prop is assigned a value
+
+class Car{
+    constructor(power){
+        this._gas = 25;
+        this._power = power;
+    }
+    get power(){
+        return `${this._power}hp`;
+    }
+    get gas(){
+        return `${this._gas}L (${this._gas/50*100}%)`;
+    }
+    set gas(val){
+        if(val>50){
+            val = 50;
+        }
+        else if(val<0){
+            val =0;
+        }
+        this._gas = val;
+    }
+}
+
+let car = new Car(400);
+car.gas = -100;
+console.log(car.power);
+console.log(car.gas);
+
+//OBJECT AS AN ARGUMENT // 
+class Car {
+    constructor(model,year,colour){
+        this.company =model;
+        this.manufacture_YR = year;
+        this.color = colour;
+    }
+}
+
+const car1 = new Car("lambo",2025,'red');
+const car2 = new Car("ferrari",2025,'yellow');
+const car3 = new Car("Mercedes",2025,'red');
+const car4 = new Car("Lexus",2025,'black');
+const car5 = new Car("bugatti",2025,'royal_blue');
+
+changeColor(car5,"red");
+displayInfo(car5);
+
+function displayInfo(car){
+    console.log(car.company);
+    console.log(car.manufacture_YR);
+    console.log(car.color);
+}
+function changeColor(car,col){
+    car.color = col;
+}
+
+## Array of objects 
+  class Car{
+    constructor(model,yr,color){
+        this.model = model;
+        this.year = yr;
+        this.color = color;
+    }
+    drive(){
+        console.log(`You drive the ${this.model}`);
+    }
+
+  }
+
+const car1 = new Car("lambo",2025,'red');
+const car2 = new Car("ferrari",2025,'yellow');
+const car3 = new Car("Mercedes",2025,'red');
+const car4 = new Car("Lexus",2025,'black');
+const car5 = new Car("bugatti",2025,'royal_blue');
+
+const cars = [car1,car2,car3,car4,car5];
+
+console.log(cars[0].model);
+
+cars[1].drive();
+
+startRace(cars);
+
+function startRace(cars){
+    for(const caar of cars){
+        caar.drive();
+    }
+}
+
+// ## EROR HANDLING 
+error = object with a description of somthing went wrong 
+
+throw = executes a user- defined error 
+
+try{
+    let x = window.prompt ("Enter a #");
+    x = Number (x);
+    if(isNaN(x)){
+         throw "That wasn't a number!"
+    }
+    if(x == ""){
+        throw "That was empty!"
+    }
+    console.log (`${x} is a number`);
+    }
+catch(error){
+    console. log (error);
+    }
+finally{
+    console.log("This always works");
+}
+ 
+ ##setTimeOut(callback/function expresion/arrow func ,milliSeconds,args of func being callbacked)
+ ##clearTimeOut()
+ ##setInterval() = invokes a function repetedly after a number of milliseconds 
+                    asynchronous function ( doesn't pause execution )
+
+##date object 
+
+$$ SYNCHRONOUS CODE = In an ordered sequence .
+                      Step-by-step linear instructions
+                      (star now , finish now)
+$$ ASYNCHRONOUS CODE = out of sequence .
+                       Ex. Access a database 
+                           Fetch a file 
+                           Task that take time 
+                           (Start now , finish sometime later)
+
+        console.log("start");
+        console.log("This is a synchronous code");
+        console.log("end");                   
+
+
+console.log("Start");
+setTimeOut(()=> console.log("This is asynchronous"),5000);
+console.log("End");
+
+$$ console.time("Name_of_timer") = starts a timer you can use to track how much time does a synchronous process takes 
+                      Give each timer a unique name 
+$$ console.timeEnd("name_of_timer")
+
+
+
+############################################################################################################################################################
+############################################################################################################################################################
+############################################################################################################################################################
+############################################################################################################################################################
+
+
+@@@@@@@@     TYPESCRIPT      @@@@@@@@@@
+
+
+
+Yes, there are noticeable syntax differences between TypeScript and JavaScript, primarily due to TypeScript's static typing and additional features that are not present in JavaScript. Here are some of the key syntax differences:
+
+### 1. Type Annotations
+
+TypeScript allows developers to add type annotations to variables, function parameters, and return types, whereas JavaScript does not have this feature due to its dynamic typing.
+
+**TypeScript:**
+```typescript
+let name: string = "John Doe";
+function greet(person: string): string {
+    return "Hello, " + person;
+}
+```
+
+**JavaScript:**
+In JavaScript, you don't specify types. The same code would look like this:
+```javascript
+let name = "John Doe";
+function greet(person) {
+    return "Hello, " + person;
+}
+```
+
+### 2. Interfaces
+
+TypeScript introduces interfaces, a way to define custom types. Interfaces are not available in JavaScript.
+
+**TypeScript:**
+```typescript
+interface User {
+    name: string;
+    age: number;
+}
+
+function registerUser(user: User) {
+    // Implementation
+}
+```
+
+### 3. Enums
+
+TypeScript provides enums, a feature not available in vanilla JavaScript, allowing for better management of sets of related constants.
+
+**TypeScript:**
+```typescript
+enum Color {
+    Red,
+    Green,
+    Blue,
+}
+let c: Color = Color.Green;
+```
+
+### 4. Access Modifiers
+
+TypeScript supports access modifiers like `public`, `private`, and `protected` for properties and methods in classes, which help in encapsulating the class members. These are not available in JavaScript.
+
+**TypeScript:**
+```typescript
+class Person {
+    private name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+}
+```
+
+### 5. Optional Chaining and Nullish Coalescing
+
+While optional chaining (`?.`) and nullish coalescing (`??`) were first used in TypeScript, they are now part of modern JavaScript (ECMAScript 2020) as well.
+
+**TypeScript and Modern JavaScript:**
+```typescript
+const x = obj?.prop ?? "default";
+```
+
+### 6. Generics
+
+TypeScript introduces generics, enabling the creation of components that work with any type rather than a single type.
+
+**TypeScript:**
+```typescript
+function identity<T>(arg: T): T {
+    return arg;
+}
+```
+
+JavaScript does not have an equivalent syntax for generics since it does not enforce types at compile time.
+
+### 7. Decorators
+
+TypeScript supports decorators, a special kind of declaration that can be attached to a class declaration, method, accessor, property, or parameter. Decorators use the form `@expression`, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration.
+
+**TypeScript:**
+```typescript
+@Component({
+    selector: 'my-component',
+    template: '<div>Hello, world!</div>'
+})
+class MyComponent {
+}
+```
+
+Decorators are an experimental feature in TypeScript and not part of JavaScript.
+
+### Conclusion
+
+While TypeScript shares the same basic syntax as JavaScript due to its nature as a superset, it introduces several additional syntax features to support static typing, better object-oriented programming principles, and other enhancements aimed at making the development of large-scale applications more manageable. These features, while beneficial, also introduce a learning curve for developers transitioning from JavaScript to TypeScript.
+
